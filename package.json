@@ -49,9 +49,11 @@
     "url": "https://github.com/jcoreio/react-media-material-ui.git"
   },
   "keywords": [
-    "es2015",
+    "material-ui",
+    "media-queries",
     "react",
-    "skeleton"
+    "react-media",
+    "responsive-design"
   ],
   "author": "Andy Edwards",
   "license": "MIT",
