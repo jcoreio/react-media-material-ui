@@ -6,7 +6,21 @@
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
 An easy way to use breakpoints from your material-ui theme with
-(`react-media`)[https://github.com/ReactTraining/react-media]
+(`react-media`)[https://github.com/ReactTraining/react-media].  This is a bit
+more flexible than material-ui's `Hidden` component because it allows you to
+render whatever you want if the query doesn't match, rather than just hiding
+the content.
+
+This is also an especially convenient replacement for material-ui's
+`withMobileDialog` HOC:
+
+```js
+<BreakpointMedia max="xs">
+  {matches => (
+    <Dialog
+      fullScreen={matches}
+      ...
+```
 
 ## Installation
 
