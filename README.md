@@ -5,7 +5,8 @@
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
-An easy way to use breakpoints from your material-ui theme with react-media
+An easy way to use breakpoints from your material-ui theme with
+(`react-media`)[https://github.com/ReactTraining/react-media]
 
 ## Installation
 
@@ -31,12 +32,12 @@ const HideOnMobile = ({children}) => (
 
 ### `min` (`'xs' | 'sm' | 'md' | 'lg' | 'xl'`)
 
-If given, will include `minWidth: theme.breakpoints.values[props.min]` in the
+If given, will include `minWidth: theme.breakpoints.up(props.min)` in the
 `query` prop to `react-media`.
 
 ### `max` (`'xs' | 'sm' | 'md' | 'lg' | 'xl'`)
 
-If given, will include `maxWidth: theme.breakpoints.values[props.max] - 0.05` in
+If given, will include `maxWidth: theme.breakpoints.down(props.max)` in
 the `query` prop to `react-media`.
 
 ### `children` (`((matches: boolean) => ?React.Node) | React.Node`)
