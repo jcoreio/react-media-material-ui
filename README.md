@@ -42,8 +42,23 @@ the `query` prop to `react-media`.
 
 ### `children` (`((matches: boolean) => ?React.Node) | React.Node`)
 
-The `children` prop for `Media` as specified by `react-media`.
+A function whose only argument will be a boolean flag that indicates whether the
+media query matches or not, returning what to render, or just a React node to be
+rendered if the query matches.
 
 ### `render` (`() => React.Node`)
 
-The `render` prop for `Media` as specified by `react-media`.
+A function that is only called if the query matches, and returns what to render
+when the query matches.
+
+### `defaultMatches` (`boolean`)
+
+When rendering on the server you can use this prop to set the initial state on the server to match whatever you think it will be on the client. You can detect the user's device by analyzing the user-agent string from the HTTP request in your server-side rendering code.
+
+### `onChange` (`(matches: boolean) => any`)
+
+Callback fired when the status of the media query changes.
+
+### `targetWindow` (`Window`)
+
+Can be specified if you want the query to be evaluated against a different window object than the one the code is running in. This can be useful for example if you are rendering part of your component tree to an iframe or a popup window.
