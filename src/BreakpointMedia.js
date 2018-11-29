@@ -9,8 +9,7 @@ type BreakpointName = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 
 type Theme = {
   +breakpoints: {
-    +up: (BreakpointName) => number,
-    +down: (BreakpointName) => number,
+    +values: {[name: BreakpointName]: number},
   },
 }
 
@@ -29,10 +28,20 @@ export type Props = {
   +targetWindow?: ?TargetWindow,
 }
 
+const next: {[name: BreakpointName]: BreakpointName} = {
+  xs: 'sm',
+  sm: 'md',
+  md: 'lg',
+  lg: 'xl',
+  xl: 'xl',
+}
+
 const BreakpointMedia = ({theme, min, max, children, render, ...props}: Props): React.Node => {
   const query = {}
-  if (min) query.minWidth = theme.breakpoints.up(min)
-  if (max) query.maxWidth = theme.breakpoints.down(max)
+  if (min) query.minWidth = theme.breakpoints.values[min]
+  if (max && max !== 'xl') {
+    query.maxWidth = theme.breakpoints.values[next[max]] - 0.05
+  }
   return (
     <Media query={query} render={render} {...props}>
       {children}

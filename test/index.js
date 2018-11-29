@@ -21,7 +21,7 @@ describe('BreakpointMedia', () => {
       </MuiThemeProvider>
     ).dive().dive()
     expect(comp.prop('query')).to.deep.equal({
-      minWidth: theme.breakpoints.up('sm'),
+      minWidth: theme.breakpoints.values.sm,
     })
     expect(comp.prop('children')).to.equal(children)
   })
@@ -36,7 +36,7 @@ describe('BreakpointMedia', () => {
       </MuiThemeProvider>
     ).dive().dive()
     expect(comp.prop('query')).to.deep.equal({
-      maxWidth: theme.breakpoints.down('sm'),
+      maxWidth: theme.breakpoints.values.md - 0.05,
     })
     expect(comp.prop('children')).to.equal(children)
   })
