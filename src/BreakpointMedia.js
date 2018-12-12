@@ -4,28 +4,14 @@ import * as React from 'react'
 import Media from 'react-media'
 import PropTypes from 'prop-types'
 import withTheme from '@material-ui/core/styles/withTheme'
+import type {Theme} from '@material-ui/core/styles/createMuiTheme'
 
 type BreakpointName = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 
-type Theme = {
-  +breakpoints: {
-    +values: {[name: BreakpointName]: number},
-  },
-}
-
-interface TargetWindow {
-  matchMedia: (query: string) => MediaQueryList,
-}
-
-export type Props = {
+export type Props = React.ElementConfig<typeof Media> & {
   +theme: Theme,
   +min?: ?BreakpointName,
   +max?: ?BreakpointName,
-  +children?: ((matches: boolean) => ?React.Node) | React.Node,
-  +render?: ?() => React.Node,
-  +defaultMatches?: ?boolean,
-  +onChange?: ?(matches: boolean) => any,
-  +targetWindow?: ?TargetWindow,
 }
 
 const next: {[name: BreakpointName]: BreakpointName} = {
@@ -43,7 +29,7 @@ const BreakpointMedia = ({theme, min, max, children, render, ...props}: Props): 
     query.maxWidth = theme.breakpoints.values[next[max]] - 0.05
   }
   return (
-    <Media query={query} render={render} {...props}>
+    <Media query={(query: any)} render={render} {...props}>
       {children}
     </Media>
   )
