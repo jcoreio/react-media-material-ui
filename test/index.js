@@ -19,7 +19,7 @@ describe('BreakpointMedia', () => {
           {children}
         </BreakpointMedia>
       </MuiThemeProvider>
-    ).dive().dive()
+    ).dive().dive().dive()
     expect(comp.prop('query')).to.deep.equal({
       minWidth: theme.breakpoints.values.sm,
     })
@@ -34,7 +34,7 @@ describe('BreakpointMedia', () => {
           {children}
         </BreakpointMedia>
       </MuiThemeProvider>
-    ).dive().dive()
+    ).dive().dive().dive()
     expect(comp.prop('query')).to.deep.equal({
       maxWidth: theme.breakpoints.values.md - 0.05,
     })

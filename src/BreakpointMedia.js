@@ -3,7 +3,7 @@
 import * as React from 'react'
 import Media from 'react-media'
 import PropTypes from 'prop-types'
-import withTheme from '@material-ui/core/styles/withTheme'
+import {withStyles} from '@material-ui/core/styles'
 import type {Theme} from '@material-ui/core/styles/createMuiTheme'
 
 type BreakpointName = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
@@ -51,4 +51,4 @@ BreakpointMedia.propTypes = {
   }),
 }
 
-export default withTheme()(BreakpointMedia)
+export default withStyles({}, {withTheme: true})(BreakpointMedia)
