@@ -108,7 +108,7 @@
     "react-dom": "16.8.0",
     "react-media": "^1.8.0",
     "rimraf": "^2.6.0",
-    "semantic-release": "^15.6.3",
+    "semantic-release": "^17.2.3",
     "travis-deploy-once": "^5.0.1"
   },
   "peerDependencies": {
