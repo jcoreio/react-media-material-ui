@@ -5,6 +5,33 @@
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
+## Obsolete
+
+I'd recommend using `useMediaQuery` and `Hidden` from Material-UI now.
+
+You can replace `BreakpointMedia` elements as follows:
+
+```js
+// MediaQuery.js
+import * as React from 'react'
+export const MediaQuery = ({ query, children }) => children(useMediaQuery(query))
+```
+
+```diff
+// MyComponent.js
+-import BreakpointMedia from 'react-media-material-ui'
++import MediaQuery from './MediaQuery'
+
+-<BreakpointMedia max="xs">
++<MediaQuery query={theme => theme.breakpoints.down('xs')}>
+  {matches => (
+    <Dialog
+      fullScreen={matches}
+      ...
+```
+
+## Intro
+
 An easy way to use breakpoints from your material-ui theme with
 (`react-media`)[https://github.com/ReactTraining/react-media].  This is a bit
 more flexible than material-ui's `Hidden` component because it allows you to
